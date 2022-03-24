@@ -1,5 +1,12 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import type { AppProps } from 'next/app';
+import React from 'react';
+import '../styles/about.css';
+import '../styles/globals.css';
+import '../styles/header.css';
+import '../styles/home.css';
+import '../styles/skills.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />

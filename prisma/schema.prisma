@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model migrations {
+  id        Int    @id @default(autoincrement()) @db.UnsignedInt
+  migration String @db.VarChar(255)
+  batch     Int
+}
+
+model project {
+  KodeProject String  @id @db.VarChar(50)
+  NamaProject String? @db.VarChar(200)
+  Keterangan  String? @db.VarChar(500)
+  Image1      Bytes?
+}
+
+model utillog {
+  ID               Int  @id @default(autoincrement())
+  JumlahPengunjung Int?
+}
+
+model visitor {
+  IP      String    @id @db.VarChar(200)
+  Header1 String?   @db.VarChar(200)
+  Header2 String?   @db.VarChar(200)
+  Tanggal DateTime? @db.DateTime(0)
+}

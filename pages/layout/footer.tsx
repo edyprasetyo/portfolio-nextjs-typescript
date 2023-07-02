@@ -1,4 +1,12 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
+import requestIp from 'request-ip';
+import { db } from '../../lib/db';
+
+export const getServerSideProps = async ({ req }: any) => {
+    const detectedIp = requestIp.getClientIp(req)
+    const list = await db.visitor.findMany();
+    return { props: { list } };
+};
 
 const Footer: NextPage = () => {
     return (

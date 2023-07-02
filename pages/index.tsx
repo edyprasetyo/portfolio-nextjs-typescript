@@ -1,15 +1,10 @@
 import Terminal from '@nitric/react-animated-term';
 import type { NextPage } from 'next';
-import { db } from '../lib/db';
 import Layout from './layout/layout';
 
 
-export const getServerSideProps = async ({ }) => {
-  const list = await db.visitor.findMany();
-  return { props: { list } };
-};
+const Home: NextPage = () => {
 
-const Home: NextPage = ({ list }: any) => {
   function showProfile() {
     window.open('https://www.instagram.com/edyprasetyo_', '_blank');
   }
@@ -76,9 +71,6 @@ const Home: NextPage = ({ list }: any) => {
           <div className="row">
             <div className="col-lg-6 pt-3 img-profile-parent justify-content-center align-self-center">
               <span onClick={showProfile}>
-                <h1>
-                  {list[0].IP}
-                </h1>
 
                 <img className="img-fluid img-profile" src="/images/profile_4.png" />
               </span>
